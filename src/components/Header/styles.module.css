@@ -1,0 +1,12 @@
+.header {
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  border-bottom: 2px solid var(--light-grayish-blue);
+
+  padding: 30px;
+}
