@@ -97,6 +97,8 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+
+  transition: opacity 0.3s ease-in-out;
 }
 
 .btn:hover {

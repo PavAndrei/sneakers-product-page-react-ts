@@ -11,6 +11,16 @@ export interface IProduct {
   text: string;
   price: number;
   discount: number;
+  images: IImage[];
+}
+
+export interface ICartItem {
+  id: string;
+  image: string;
+  title: string;
+  price: number;
+  discount: number;
+  quantity: number;
 }
 
 export type PriceType = number | undefined;

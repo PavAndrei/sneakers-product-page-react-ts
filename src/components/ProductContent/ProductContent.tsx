@@ -3,13 +3,15 @@ import { useProductPageContext } from "../../context/ProductPageContext";
 import { IconCart } from "../../icons/IconCart";
 import { IconMinus } from "../../icons/IconMinus";
 import { IconPlus } from "../../icons/IconPlus";
+
 import { calculateWithDiscount } from "../../utils/calculateWithDiscount";
 import { formatPrice } from "../../utils/formatPrice";
 
 import styles from "./styles.module.css";
 
 export const ProductContent = () => {
-  const { counter, changeCounter, productData } = useProductPageContext();
+  const { counter, changeCounter, productData, addItemToCart } =
+    useProductPageContext();
 
   return (
     <div className={styles.content}>
@@ -29,7 +31,7 @@ export const ProductContent = () => {
           <span className={styles.discount}>-{productData?.discount}%</span>
         </div>
         <div className={styles.prevPrice}>
-          ${formatPrice(productData?.price)}
+          ${formatPrice(productData && productData.price * counter)}
         </div>
       </div>
       <div className={styles.purchase}>
@@ -48,7 +50,7 @@ export const ProductContent = () => {
             <IconPlus />
           </button>
         </div>
-        <button className={styles.btn}>
+        <button onClick={addItemToCart} className={styles.btn}>
           <IconCart color="black" /> <span>Add to cart</span>
         </button>
       </div>

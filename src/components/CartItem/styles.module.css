@@ -1,0 +1,37 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  color: var(--dark-grayish-blue);
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.itemTitle {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.price {
+  display: flex;
+  gap: 10px;
+  font-style: 14px;
+}
+
+.total {
+  font-weight: 700;
+  color: var(--black);
+}
+
+.iconRemove {
+  max-width: 16px;
+  margin-right: 0;
+  margin-left: auto;
+  cursor: pointer;
+}

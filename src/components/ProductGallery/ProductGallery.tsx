@@ -3,7 +3,8 @@ import { useProductPageContext } from "../../context/ProductPageContext";
 import styles from "./styles.module.css";
 
 export const ProductGallery = () => {
-  const { images, selectedImage, selectNewImage } = useProductPageContext();
+  const { productData, selectedImage, selectNewImage } =
+    useProductPageContext();
 
   return (
     <div className={styles.gallery}>
@@ -13,7 +14,7 @@ export const ProductGallery = () => {
         alt="full-size image"
       />
       <div className={styles.group}>
-        {images.map((image) => {
+        {productData?.images.map((image) => {
           return (
             <img
               onClick={() => selectNewImage(image.id)}

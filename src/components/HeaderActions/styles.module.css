@@ -13,6 +13,19 @@
   justify-content: center;
   width: 40px;
   height: 40px;
+  position: relative;
+}
+
+.quantity {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 8px;
+  background-color: var(--orange);
+  color: var(--white);
+  border-radius: 35%;
+  font-size: 14px;
+  line-height: 14px;
 }
 
 .btn svg path {

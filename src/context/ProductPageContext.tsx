@@ -6,18 +6,20 @@ import {
   useState,
 } from "react";
 
-import { IImage, IProduct } from "../interfaces";
-import { Images } from "../assets";
+import { ICartItem, IImage, IProduct } from "../interfaces";
 
 interface IProductPageContext {
-  images: IImage[];
   selectedImage: IImage | undefined;
   selectNewImage: (id: string) => void;
   counter: number;
   changeCounter: (action: string) => void;
   productData: IProduct | undefined;
+  cartData: ICartItem[] | undefined;
   isCartVisible: boolean;
   toggleCartVisibility: () => void;
+  addItemToCart: () => void;
+  removeItemFromCart: (id: string) => void;
+  calculateOrderQuantity: () => number | undefined;
 }
 
 export const ProductPageContext = createContext<
@@ -26,11 +28,9 @@ export const ProductPageContext = createContext<
 
 export const useProductPageContext = () => {
   const context = useContext(ProductPageContext);
-
   if (!context) {
     throw new Error("context error");
   }
-
   return context;
 };
 
@@ -41,13 +41,11 @@ interface ProductPageProviderProps {
 export const ProductPageProvider = ({ children }: ProductPageProviderProps) => {
   const [counter, setCounter] = useState(1);
   const [productData, setProductData] = useState<IProduct | undefined>();
-  const [images] = useState(Images);
+  const [cartData, setCartData] = useState<ICartItem[] | undefined>([]);
   const [selectedImage, setSelectedImage] = useState<IImage | undefined>(
-    images[0]
+    undefined
   );
-
   const [isCartVisible, setIsCartVisible] = useState(false);
-  // const [cart, setCart] = useState([]);
 
   // 2) Устанвить react-router-dom и работать с параметрами ?
 
@@ -64,17 +62,17 @@ export const ProductPageProvider = ({ children }: ProductPageProviderProps) => {
         const response = await fetch("/data.json");
         const data = await response.json();
         setProductData(data[0]);
+        setSelectedImage(data[0].images[0]);
       } catch (error) {
         console.error(error);
       }
     };
-
     getProductData();
   }, []);
 
   const selectNewImage = (id: string) => {
-    const newImg = images.find((image) => image.id === id);
-    setSelectedImage(newImg);
+    const newImage = productData?.images.find((img) => img.id === id);
+    setSelectedImage(newImage);
   };
 
   const toggleCartVisibility = () => {
@@ -83,13 +81,50 @@ export const ProductPageProvider = ({ children }: ProductPageProviderProps) => {
 
   const changeCounter = (action: string) => {
     if (action === "inc") setCounter((prev) => prev + 1);
-    if (action === "dec" && counter > 0) setCounter((prev) => prev - 1);
+    if (action === "dec" && counter > 1) setCounter((prev) => prev - 1);
+  };
+
+  const addItemToCart = () => {
+    if (!productData) return;
+
+    const { id, title, images, price, discount } = productData;
+    const image = images?.[0]?.thumbnailSize;
+
+    setCartData((prev = []) => {
+      const existingItem = prev.find((item) => item.id === id);
+
+      const updatedItem = {
+        id,
+        title,
+        image,
+        price,
+        discount,
+        quantity: counter,
+      };
+
+      if (existingItem && existingItem.quantity === counter) {
+        return prev;
+      }
+
+      if (existingItem) {
+        return prev.map((item) => (item.id === id ? updatedItem : item));
+      }
+
+      return [...prev, updatedItem];
+    });
+  };
+
+  const removeItemFromCart = (id: string) => {
+    setCartData((prev) => prev?.filter((item) => item.id !== id));
+  };
+
+  const calculateOrderQuantity = () => {
+    return cartData?.reduce((acc, item) => (acc += item.quantity), 0);
   };
 
   return (
     <ProductPageContext.Provider
       value={{
-        images,
         selectedImage,
         selectNewImage,
         counter,
@@ -97,6 +132,10 @@ export const ProductPageProvider = ({ children }: ProductPageProviderProps) => {
         productData,
         isCartVisible,
         toggleCartVisibility,
+        cartData,
+        addItemToCart,
+        removeItemFromCart,
+        calculateOrderQuantity,
       }}
     >
       {children}
