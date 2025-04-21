@@ -1,13 +1,16 @@
 import { Avatars } from "../../assets";
+import { useProductPageContext } from "../../context/ProductPageContext";
 
 import { IconCart } from "../../icons/IconCart";
 
 import styles from "./styles.module.css";
 
 export const HeaderActions = () => {
+  const { toggleCartVisibility } = useProductPageContext();
+
   return (
     <div className={styles.group}>
-      <button className={styles.btn}>
+      <button onClick={toggleCartVisibility} className={styles.btn}>
         <IconCart color="" />
       </button>
       <button className={styles.btn}>
