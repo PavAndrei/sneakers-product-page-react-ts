@@ -1,35 +1,22 @@
 import { useProductPageContext } from "../../context/ProductPageContext";
+import { PhotosList } from "../PhotosList/PhotosList";
+import { SelectedPhoto } from "../SelectedPhoto/SelectedPhoto";
 
 import styles from "./styles.module.css";
 
 export const ProductGallery = () => {
-  const { productData, selectedImage, selectNewImage, openModal } =
+  const { selectedImage, productData, selectNewImage } =
     useProductPageContext();
 
   return (
     <div className={styles.gallery}>
-      <img
-        onClick={openModal}
-        className={styles.mainImage}
-        src={selectedImage?.fullSize}
-        alt="full-size image"
-      />
+      <SelectedPhoto imgSrc={selectedImage} />
       <div className={styles.group}>
-        {productData?.images.map((image, i) => {
-          return (
-            <img
-              onClick={() => selectNewImage(image.id)}
-              key={image.thumbnailSize}
-              className={
-                image.thumbnailSize === selectedImage?.thumbnailSize
-                  ? styles.thumbnailActive
-                  : styles.thumbnail
-              }
-              src={image.thumbnailSize}
-              alt={`thumbnail-${i}`}
-            />
-          );
-        })}
+        <PhotosList
+          images={productData?.images || []}
+          activeImageId={selectedImage?.id || null}
+          onImageSelect={(id) => selectNewImage(id, "page")}
+        />
       </div>
     </div>
   );

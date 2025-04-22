@@ -18,22 +18,3 @@
   justify-content: space-between;
   gap: 10px;
 }
-
-.thumbnail,
-.thumbnailActive {
-  max-width: 20%;
-  border-radius: 12px;
-  cursor: pointer;
-  object-fit: cover;
-
-  transition: all 0.2s ease-in-out;
-}
-
-.thumbnail:hover {
-  opacity: 0.3;
-}
-
-.thumbnailActive {
-  outline: 3px solid var(--orange);
-  opacity: 0.3;
-}

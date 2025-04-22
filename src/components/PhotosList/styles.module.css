@@ -1,0 +1,44 @@
+.list {
+  display: flex;
+  max-width: 100%;
+
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.item {
+  max-width: 20%;
+  background-color: transparent;
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.thumbnail,
+.thumbnailActive {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  object-fit: cover;
+
+  opacity: 1;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.thumbnail:hover {
+  opacity: 0.3;
+}
+
+.item:has(.thumbnail:hover) {
+  background-color: var(--white);
+}
+
+.item:has(.thumbnailActive) {
+  background-color: var(--white);
+  border: 2px solid var(--orange);
+}
+
+.thumbnailActive {
+  opacity: 0.3;
+}

@@ -1,0 +1,9 @@
+.sliderImage {
+  max-width: 500px;
+  max-height: 700px;
+  border-radius: 12px;
+}
+
+.pointed {
+  cursor: pointer;
+}

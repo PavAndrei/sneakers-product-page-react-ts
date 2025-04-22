@@ -17,26 +17,22 @@
   align-self: flex-end;
 }
 
-.sliderImage {
-  max-width: 500px;
-  max-height: 700px;
-  border-radius: 12px;
+.slider {
+  position: relative;
 }
 
-.navigationList {
-  display: flex;
-  max-width: 100%;
-
-  justify-content: center;
-  gap: 10px;
+/* .sliderBtnLeft,
+.sliderBtnRight {
+  position: absolute;
+  top: 50%;
+  padding: 15px 20px;
+  background-color: var(--white);
+  border-radius: 50%;
 }
 
-.thumbnail,
-.thumbnailActive {
-  max-width: 20%;
-  border-radius: 12px;
-  cursor: pointer;
-  object-fit: cover;
-
-  transition: all 0.2s ease-in-out;
+.sliderBtnLeft {
+  left: -5%;
 }
+.sliderBtnRight {
+  right: -5%;
+} */
