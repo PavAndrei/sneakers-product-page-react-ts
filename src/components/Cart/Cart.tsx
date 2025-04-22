@@ -1,16 +1,21 @@
+import { useRef } from "react";
 import { useProductPageContext } from "../../context/ProductPageContext";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 import { CartList } from "../CartList/CartList";
 
 import styles from "./styles.module.css";
 
 export const Cart = () => {
-  const { cartData } = useProductPageContext();
+  const { cartData, toggleCartVisibility, isCartVisible } =
+    useProductPageContext();
 
-  console.log(cartData);
+  const ref = useRef(null);
+
+  useClickOutside(ref, toggleCartVisibility, isCartVisible);
 
   return (
-    <div className={styles.cart}>
+    <div ref={ref} className={styles.cart}>
       <h3 className={styles.title}>Cart</h3>
       {cartData?.length != 0 ? (
         <CartList />

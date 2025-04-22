@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100%;
+  min-height: 100%;
+}
+
 body {
   --orange: hsl(26, 100%, 55%);
   --pale-orange: hsl(25, 100%, 94%);
@@ -19,6 +24,7 @@ body {
   --black-lightbox: hsla(0, 0, 0, 0.75);
 
   display: block;
+  min-height: 100%;
 
   font-family: "Kumbh Sans", sans-serif;
   font-size: 16px;

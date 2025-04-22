@@ -20,6 +20,9 @@ interface IProductPageContext {
   addItemToCart: () => void;
   removeItemFromCart: (id: string) => void;
   calculateOrderQuantity: () => number | undefined;
+  isModalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 }
 
 export const ProductPageContext = createContext<
@@ -46,11 +49,11 @@ export const ProductPageProvider = ({ children }: ProductPageProviderProps) => {
     undefined
   );
   const [isCartVisible, setIsCartVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 2) Устанвить react-router-dom и работать с параметрами ?
 
   // 3) Реализовать функционал lightbox-галереи
-  // 4) Реализвовать функционал добавления в корзину
   // 5) Адаптив
   // 6) Все активные эффекты и состояния
   // 7) Accessablilty (надписи на кнопках и прочее)
@@ -122,6 +125,14 @@ export const ProductPageProvider = ({ children }: ProductPageProviderProps) => {
     return cartData?.reduce((acc, item) => (acc += item.quantity), 0);
   };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <ProductPageContext.Provider
       value={{
@@ -136,6 +147,9 @@ export const ProductPageProvider = ({ children }: ProductPageProviderProps) => {
         addItemToCart,
         removeItemFromCart,
         calculateOrderQuantity,
+        isModalOpen,
+        openModal,
+        closeModal,
       }}
     >
       {children}

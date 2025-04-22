@@ -1,0 +1,42 @@
+.lightboxWrapper {
+  position: relative;
+  z-index: 1000;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-height: 100%;
+}
+
+.lightbox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttonClose {
+  align-self: flex-end;
+}
+
+.sliderImage {
+  max-width: 500px;
+  max-height: 700px;
+  border-radius: 12px;
+}
+
+.navigationList {
+  display: flex;
+  max-width: 100%;
+
+  justify-content: center;
+  gap: 10px;
+}
+
+.thumbnail,
+.thumbnailActive {
+  max-width: 20%;
+  border-radius: 12px;
+  cursor: pointer;
+  object-fit: cover;
+
+  transition: all 0.2s ease-in-out;
+}
