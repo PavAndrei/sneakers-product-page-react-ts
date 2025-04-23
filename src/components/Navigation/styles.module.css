@@ -3,3 +3,9 @@
   align-items: flex-start;
   gap: 30px;
 }
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+  }
+}

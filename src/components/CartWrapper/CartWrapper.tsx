@@ -1,11 +1,10 @@
+import { ReactNode } from "react";
 import styles from "./styles.module.css";
-import { CartList } from "../CartList/CartList";
 
-export const CartWrapper = () => {
-  return (
-    <div className={styles.wrapper}>
-      <CartList />
-      <button className={styles.btn}>Checkout</button>
-    </div>
-  );
+interface Props {
+  children: ReactNode;
+}
+
+export const CartWrapper = ({ children }: Props) => {
+  return <div className={styles.wrapper}>{children}</div>;
 };

@@ -25,3 +25,30 @@
   font-weight: 700;
   color: var(--dark-grayish-blue);
 }
+
+.btn {
+  font-weight: 700;
+  color: var(--black);
+  background-color: var(--orange);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .cart {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+}

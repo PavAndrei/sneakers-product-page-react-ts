@@ -35,3 +35,9 @@
   margin-left: auto;
   cursor: pointer;
 }
+
+@media (max-width: 400px) {
+  .price {
+    flex-wrap: wrap;
+  }
+}

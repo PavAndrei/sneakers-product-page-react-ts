@@ -26,3 +26,11 @@
 .link {
   color: var(--dark-grayish-blue);
 }
+
+@media (max-width: 768px) {
+  .item,
+  .link {
+    color: var(--black);
+    font-weight: 700;
+  }
+}
