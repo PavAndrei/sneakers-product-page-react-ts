@@ -27,6 +27,12 @@
   color: var(--dark-grayish-blue);
 }
 
+@media (max-width: 1024px) {
+  .item::after {
+    top: 44px;
+  }
+}
+
 @media (max-width: 768px) {
   .item,
   .link {
@@ -34,7 +40,7 @@
     font-weight: 700;
   }
 
-  .item:hover::after {
-    background-color: unset;
+  .item::after {
+    display: none;
   }
 }
