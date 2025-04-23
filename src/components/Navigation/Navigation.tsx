@@ -1,33 +1,14 @@
+import { NavigationItem } from "../NavigationItem/NavigationItem";
 import styles from "./styles.module.css";
+
+const navigation = ["Collections", "Men", "Women", "About", "Contract"];
 
 export const Navigation = () => {
   return (
     <nav className={styles.nav}>
-      <li className={styles.item}>
-        <a className={styles.link} href="#!">
-          Collections
-        </a>
-      </li>
-      <li className={styles.item}>
-        <a className={styles.link} href="#!">
-          Men
-        </a>
-      </li>
-      <li className={styles.item}>
-        <a className={styles.link} href="#!">
-          Women
-        </a>
-      </li>
-      <li className={styles.item}>
-        <a className={styles.link} href="#!">
-          About
-        </a>
-      </li>
-      <li className={styles.item}>
-        <a className={styles.link} href="#!">
-          Contract
-        </a>
-      </li>
+      {navigation.map((item) => {
+        return <NavigationItem key={item}>{item}</NavigationItem>;
+      })}
     </nav>
   );
 };

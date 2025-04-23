@@ -1,5 +1,5 @@
-import { useProductPageContext } from "../../context/ProductPageContext";
-
+import { useCartContext } from "../../context/CartContext";
+import { useGalleryContext } from "../../context/GalleryContext";
 import { IconCart } from "../../icons/IconCart";
 import { IconMinus } from "../../icons/IconMinus";
 import { IconPlus } from "../../icons/IconPlus";
@@ -10,8 +10,8 @@ import { formatPrice } from "../../utils/formatPrice";
 import styles from "./styles.module.css";
 
 export const ProductContent = () => {
-  const { counter, changeCounter, productData, addItemToCart } =
-    useProductPageContext();
+  const { productData } = useGalleryContext();
+  const { counter, changeCounter, addItemToCart } = useCartContext();
 
   return (
     <div className={styles.content}>
@@ -50,7 +50,10 @@ export const ProductContent = () => {
             <IconPlus />
           </button>
         </div>
-        <button onClick={addItemToCart} className={styles.btn}>
+        <button
+          onClick={() => addItemToCart(productData, counter)}
+          className={styles.btn}
+        >
           <IconCart color="black" /> <span>Add to cart</span>
         </button>
       </div>

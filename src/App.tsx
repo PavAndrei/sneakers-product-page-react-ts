@@ -1,21 +1,23 @@
 import { Header } from "./components/Header/Header";
 import { Layout } from "./components/Layout/Layout";
 import { Main } from "./components/Main/Main";
-
-import { ProductPageProvider } from "./context/ProductPageContext";
+import { CartProvider } from "./context/CartContext";
+import { GalleryProvider } from "./context/GalleryContext";
 
 import { ProductPage } from "./pages/ProductPage";
 
 function App() {
   return (
-    <ProductPageProvider>
-      <Layout>
+    <Layout>
+      <CartProvider>
         <Header />
-        <Main>
-          <ProductPage />
-        </Main>
-      </Layout>
-    </ProductPageProvider>
+        <GalleryProvider>
+          <Main>
+            <ProductPage />
+          </Main>
+        </GalleryProvider>
+      </CartProvider>
+    </Layout>
   );
 }
 

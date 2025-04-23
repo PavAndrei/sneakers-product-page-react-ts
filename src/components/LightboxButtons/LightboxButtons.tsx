@@ -1,11 +1,11 @@
-import { useProductPageContext } from "../../context/ProductPageContext";
+import { useGalleryContext } from "../../context/GalleryContext";
 import { IconNext } from "../../icons/IconNext";
 import { IconPrev } from "../../icons/IconPrev";
 
 import styles from "./styles.module.css";
 
 export const LightboxButtons = () => {
-  const { filpSlides } = useProductPageContext();
+  const { filpSlides } = useGalleryContext();
 
   return (
     <>

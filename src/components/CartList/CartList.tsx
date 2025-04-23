@@ -1,9 +1,9 @@
-import { useProductPageContext } from "../../context/ProductPageContext";
+import { useCartContext } from "../../context/CartContext";
 import { CartItem } from "../CartItem/CartItem";
 import styles from "./styles.module.css";
 
 export const CartList = () => {
-  const { cartData } = useProductPageContext();
+  const { cartData } = useCartContext();
 
   return (
     <ul className={styles.list}>

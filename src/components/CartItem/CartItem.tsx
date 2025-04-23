@@ -1,12 +1,20 @@
-import { useProductPageContext } from "../../context/ProductPageContext";
+import { useCartContext } from "../../context/CartContext";
 import { IconRemove } from "../../icons/IconRemove";
 import { ICartItem } from "../../interfaces";
+import { calculateWithDiscount } from "../../utils/calculateWithDiscount";
 import { formatPrice } from "../../utils/formatPrice";
 
 import styles from "./styles.module.css";
 
-export const CartItem = ({ id, image, title, price, quantity }: ICartItem) => {
-  const { removeItemFromCart } = useProductPageContext();
+export const CartItem = ({
+  id,
+  image,
+  title,
+  price,
+  quantity,
+  discount,
+}: ICartItem) => {
+  const { removeItemFromCart } = useCartContext();
 
   return (
     <li className={styles.item}>
@@ -14,9 +22,13 @@ export const CartItem = ({ id, image, title, price, quantity }: ICartItem) => {
       <div className={styles.itemInfo}>
         <h4 className={styles.itemTitle}>{title}</h4>
         <div className={styles.price}>
-          <span className={styles.priceItem}>${formatPrice(price)}</span>
+          <span className={styles.priceItem}>
+            ${formatPrice(price - (price / 100) * discount)}
+          </span>
           <span className={styles.quantity}>x {quantity}</span>
-          <span className={styles.total}>${formatPrice(price * quantity)}</span>
+          <span className={styles.total}>
+            ${calculateWithDiscount(price, discount, quantity)}
+          </span>
         </div>
       </div>
       <div onClick={() => removeItemFromCart(id)} className={styles.iconRemove}>

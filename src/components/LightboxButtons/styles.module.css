@@ -7,9 +7,28 @@
   border-radius: 50%;
 }
 
+.sliderBtnLeft svg path,
+.sliderBtnRight svg path {
+  transition: all 0.2s ease-in-out;
+}
+
+.sliderBtnLeft:hover svg path,
+.sliderBtnRight:hover svg path {
+  stroke: var(--orange);
+}
+
 .sliderBtnLeft {
   left: -5%;
 }
 .sliderBtnRight {
   right: -5%;
+}
+
+@media (max-width: 768px) {
+  .sliderBtnLeft {
+    left: 5%;
+  }
+  .sliderBtnRight {
+    right: 5%;
+  }
 }

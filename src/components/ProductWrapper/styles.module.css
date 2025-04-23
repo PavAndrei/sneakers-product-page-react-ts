@@ -8,3 +8,19 @@
   margin: 0 auto;
   position: relative;
 }
+
+@media (max-width: 1024px) {
+  .wrapper {
+    gap: 20px;
+    padding: 25px 0;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    display: grid;
+    grid-template-rows: 400px 1fr;
+  }
+}

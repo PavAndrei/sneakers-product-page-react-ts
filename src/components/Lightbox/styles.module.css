@@ -1,10 +1,7 @@
 .lightboxWrapper {
-  position: relative;
-  z-index: 1000;
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 50px;
-  max-height: 100%;
+  width: 500px;
+  height: fit-content;
+  margin: 10px auto;
 }
 
 .lightbox {
@@ -17,22 +14,19 @@
   align-self: flex-end;
 }
 
+.buttonClose svg path {
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonClose:hover svg path {
+  fill: var(--orange);
+}
+
 .slider {
   position: relative;
 }
 
-/* .sliderBtnLeft,
-.sliderBtnRight {
-  position: absolute;
-  top: 50%;
-  padding: 15px 20px;
-  background-color: var(--white);
-  border-radius: 50%;
+.listWrapper {
+  width: 90%;
+  margin: 0 auto;
 }
-
-.sliderBtnLeft {
-  left: -5%;
-}
-.sliderBtnRight {
-  right: -5%;
-} */

@@ -1,13 +1,12 @@
 import { Avatars } from "../../assets";
-import { useProductPageContext } from "../../context/ProductPageContext";
+import { useCartContext } from "../../context/CartContext";
 
 import { IconCart } from "../../icons/IconCart";
 
 import styles from "./styles.module.css";
 
 export const HeaderActions = () => {
-  const { toggleCartVisibility, calculateOrderQuantity } =
-    useProductPageContext();
+  const { toggleCartVisibility, calculateOrderQuantity } = useCartContext();
 
   const quantity = calculateOrderQuantity();
 
