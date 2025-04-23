@@ -31,4 +31,14 @@
   .sliderBtnRight {
     right: 5%;
   }
+
+  .sliderBtnLeft:hover svg path,
+  .sliderBtnRight:hover svg path {
+    stroke: #1d2026;
+  }
+
+  .sliderBtnLeft:active svg path,
+  .sliderBtnRight:active svg path {
+    stroke: var(--orange);
+  }
 }

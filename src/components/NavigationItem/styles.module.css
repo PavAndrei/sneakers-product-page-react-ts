@@ -33,4 +33,8 @@
     color: var(--black);
     font-weight: 700;
   }
+
+  .item:hover::after {
+    background-color: unset;
+  }
 }
