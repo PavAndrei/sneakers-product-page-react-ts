@@ -1,54 +1,78 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Todo app solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### The challenge
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Users should be able to:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Open a lightbox gallery by clicking on the large product image
+- Switch the large product image by clicking on the small thumbnail images
+- Add items to the cart
+- View the cart and remove items from it
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Screenshot
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+![](./screenshot.png)
+
+### Links
+
+- Solution URL: [solution URL here]()
+- Live Site URL: [live site URL here](https://sneakers-product-page-react-f8xec0vx0-andrei-pavlovs-projects.vercel.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5
+- CSS custom properties
+- Flexbox & CSS Grid
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- TypeScript
+- React Context + custom hooks
+- Drag-and-drop logic via native events
+
+### What I learned
+
+- How to structure scalable React apps using separation of concerns and hooks.
+- How to use `Context API` for centralized state management.
+- How to implement some animations and modal-windows.
+- How to toggle a sidebar.
+
+### Continued development
+
+## In the future I’d like to:
+
+- Add animations to the drag-and-drop actions
+- Add unit and integration tests (e.g. with Testing Library)
+- Add user authentication and backend persistence (Firebase/Supabase)
+- Make the app accessible (ARIA, keyboard drag support, etc.)
+
+## Useful resources
+
+- React Docs — the go-to for working with hooks and context
+- TypeScript Docs
+- framer-motion library
+
+## Author
+
+Frontend Mentor - [@frontend-mentor](https://www.frontendmentor.io/profile/PavAndrei)
+GitHub -[@github](https://github.com/PavAndrei)
