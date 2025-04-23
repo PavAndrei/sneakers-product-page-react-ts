@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution URL here]()
+- Solution URL: [solution URL here](https://www.frontendmentor.io/solutions/sneakers-product-page-with-react-vite-ts-6QEtMs5vtl)
 - Live Site URL: [live site URL here](https://sneakers-product-page-react-f8xec0vx0-andrei-pavlovs-projects.vercel.app/)
 
 ## My process
