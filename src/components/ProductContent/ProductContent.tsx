@@ -37,6 +37,7 @@ export const ProductContent = () => {
       <div className={styles.purchase}>
         <div className={styles.order}>
           <button
+            aria-label="decrease-the-number"
             onClick={() => changeCounter("dec")}
             className={styles.orderControl}
           >
@@ -44,6 +45,7 @@ export const ProductContent = () => {
           </button>
           <span className={styles.number}>{counter}</span>
           <button
+            aria-label="increase-the-number"
             onClick={() => changeCounter("inc")}
             className={styles.orderControl}
           >
@@ -51,6 +53,7 @@ export const ProductContent = () => {
           </button>
         </div>
         <button
+          aria-label="add-to-cart"
           onClick={() => addItemToCart(productData, counter)}
           className={styles.btn}
         >

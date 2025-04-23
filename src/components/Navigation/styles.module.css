@@ -1,11 +1,11 @@
-.nav {
+.list {
   display: flex;
   align-items: flex-start;
   gap: 30px;
 }
 
 @media (max-width: 768px) {
-  .nav {
+  .list {
     flex-direction: column;
   }
 }
