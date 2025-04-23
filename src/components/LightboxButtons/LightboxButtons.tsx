@@ -10,12 +10,14 @@ export const LightboxButtons = () => {
   return (
     <>
       <button
+        aria-label="flip-to-the-left"
         onClick={() => filpSlides("dec")}
         className={styles.sliderBtnLeft}
       >
         <IconPrev />
       </button>
       <button
+        aria-label="flip-to-the-right"
         onClick={() => filpSlides("inc")}
         className={styles.sliderBtnRight}
       >

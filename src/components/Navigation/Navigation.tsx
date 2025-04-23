@@ -6,9 +6,11 @@ const navigation = ["Collections", "Men", "Women", "About", "Contract"];
 export const Navigation = () => {
   return (
     <nav className={styles.nav}>
-      {navigation.map((item) => {
-        return <NavigationItem key={item}>{item}</NavigationItem>;
-      })}
+      <ul>
+        {navigation.map((item) => {
+          return <NavigationItem key={item}>{item}</NavigationItem>;
+        })}
+      </ul>
     </nav>
   );
 };
