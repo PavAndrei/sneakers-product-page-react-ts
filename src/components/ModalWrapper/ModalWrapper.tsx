@@ -6,7 +6,6 @@ import { useGalleryContext } from "../../context/GalleryContext";
 
 interface Props {
   children: ReactNode;
-  isOpen: boolean;
 }
 
 export const ModalWrapper = ({ children }: Props) => {
