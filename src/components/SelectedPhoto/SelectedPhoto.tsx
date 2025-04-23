@@ -14,21 +14,23 @@ export const SelectedPhoto = ({ imgSrc }: Props) => {
 
   return (
     <AnimatePresence mode="wait">
-      {imgSrc && (
-        <motion.img
-          key={imgSrc.id}
-          src={imgSrc.fullSize}
-          alt="selected photo"
-          className={`${!isModalOpen && !isMobile && styles.pointed} ${
-            styles.sliderImage
-          }`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          onClick={!isModalOpen && !isMobile ? openModal : undefined}
-        />
-      )}
+      <div className={styles.mask}>
+        {imgSrc && (
+          <motion.img
+            key={imgSrc.id}
+            src={imgSrc.fullSize}
+            alt="selected photo"
+            className={`${!isModalOpen && !isMobile && styles.pointed} ${
+              styles.sliderImage
+            }`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            onClick={!isModalOpen && !isMobile ? openModal : undefined}
+          />
+        )}
+      </div>
     </AnimatePresence>
   );
 };

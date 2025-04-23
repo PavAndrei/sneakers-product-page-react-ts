@@ -13,19 +13,17 @@ export const ModalWrapper = ({ children }: Props) => {
 
   return (
     <AnimatePresence mode="wait">
-      <div className={styles.modalWrapper}>
-        {isModalOpen && (
-          <motion.div
-            key="modalWrapper"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            className={styles.modalWrapper}
-          >
-            {children}
-          </motion.div>
-        )}
-      </div>
+      {isModalOpen && (
+        <motion.div
+          key="modalWrapper"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          className={styles.modalWrapper}
+        >
+          {children}
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 };

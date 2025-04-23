@@ -1,3 +1,9 @@
+.mask {
+  width: 100%;
+  min-height: 100px;
+  height: 400px;
+}
+
 .sliderImage {
   max-width: 100%;
   border-radius: 12px;
